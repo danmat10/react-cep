@@ -8,7 +8,8 @@
     <pre><code>npm install</code></pre>
     <h2>Executando a aplicação</h2>
     <p>Para iniciar a aplicação, utilize o comando:</p>
-    <pre><code>npm start</code></pre>
+    <pre><code>cd meu-app</code></pre>
+<pre><code>npm start</code></pre>
     <p>A aplicação estará disponível em <a href="http://localhost:3000">http://localhost:3000</a>.</p>
     <h2>Funcionamento</h2>
     <p>Ao iniciar a aplicação, será exibido um formulário para a busca de CEP. Ao preencher o campo com um CEP válido e clicar em "Buscar", a aplicação realizará uma requisição à API pública ViaCEP e exibirá as informações do endereço correspondente.</p>
