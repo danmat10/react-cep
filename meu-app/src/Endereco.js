@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { FaSpinner } from "react-icons/fa";
 import "./Endereco.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { Alert } from "react-bootstrap";
+import { FormGroup } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 class Endereco extends Component {
   constructor(props) {
@@ -27,6 +33,8 @@ class Endereco extends Component {
     const cep = data.get("cep");
     if (!cepRegex.test(cep)) {
       this.setState({ cepError: "CEP Inválido" });
+      this.setState({ addressData: {} });
+      this.setState({ isLoading: false });
       return;
     } else {
       this.setState({ cepError: "" });
@@ -47,39 +55,43 @@ class Endereco extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <h2>Endereço</h2>
-        <form
+      <Container>
+        <h2 style={{ textAlign: "center" }}>Endereço</h2>
+        <Form
+          className="align-items-center"
           onSubmit={this.handleSubmit}
-          className="d-flex align-items-center justify-content-center flex-column"
+          style={{ width: "400px", margin: "auto" }}
         >
-          <div className="form-group">
-            <label htmlFor="cep" className="form-label">
-              CEP:
-            </label>
-            <input
+          <FormGroup className="text-center">
+            <Form.Label htmlFor="cep">CEP:</Form.Label>
+            <Form.Control
               type="text"
-              className="form-control"
               id="cep"
               name="cep"
               value={this.state.cep}
               onChange={this.handleCepChange}
             />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Buscar
-          </button>
-        </form>
-        <div className="invalid-feedback">
-          <strong>{this.state.cepError}</strong>
-        </div>
+          </FormGroup>
+          <Row className="justify-content-md-center">
+            <Button
+              style={{ width: "200px", marginBottom: "20px" }}
+              type="submit"
+              variant="success"
+            >
+              Buscar
+            </Button>
+          </Row>
+          {this.state.cepError !== "" && (
+            <Alert variant={"danger"}>{this.state.cepError}</Alert>
+          )}
+        </Form>
         {this.state.isLoading && (
           <div className="text-center">
             <FaSpinner className="spinner" />
           </div>
         )}
         {Object.keys(this.state.addressData).length > 0 && (
-          <div>
+          <div style={{ textAlign: "center" }}>
             <h3 className="mt-3">Dados do endereço:</h3>
             <p>
               <strong>CEP:</strong> {this.state.addressData.cep}
@@ -98,7 +110,7 @@ class Endereco extends Component {
             </p>
           </div>
         )}
-      </div>
+      </Container>
     );
   }
 }

@@ -1,11 +1,24 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
-
+import { Navbar, Nav } from "react-bootstrap";
+import logo from "./logo.svg";
 
 function NavigationBar() {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand>Consulta API ViaCep</Navbar.Brand>
+    <Navbar bg="success" variant="dark" style={{ marginBottom: "20px" }}>
+      <Navbar.Brand>
+        <img
+          alt=""
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />
+        <span style={{ fontWeight: "bold" }}> Consulta API React</span>
+      </Navbar.Brand>
+      <Nav className="me-auto">
+        <Nav.Link href="/">CEP</Nav.Link>
+        <Nav.Link href="/github">Github</Nav.Link>
+      </Nav>
     </Navbar>
   );
 }
