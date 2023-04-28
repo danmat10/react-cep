@@ -5,10 +5,10 @@
     <p>Antes de começar, é necessário ter o Node.js instalado em sua máquina. Você pode baixá-lo a partir do seguinte link: <a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a>.</p>
     <h2>Instalação</h2>
     <p>Para instalar as dependências do projeto, execute o seguinte comando na raiz do projeto:</p>
-    <pre><code>npm install</code></pre>
+    <pre><code>cd meu-app</code></pre>
+<pre><code>npm install</code></pre>
     <h2>Executando a aplicação</h2>
     <p>Para iniciar a aplicação, utilize o comando:</p>
-    <pre><code>cd meu-app</code></pre>
 <pre><code>npm start</code></pre>
     <p>A aplicação estará disponível em <a href="http://localhost:3000">http://localhost:3000</a>.</p>
     <h2>Funcionamento</h2>
